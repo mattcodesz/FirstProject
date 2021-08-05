@@ -27,15 +27,18 @@ class Person():
         self.SSN = SSN
 
 class Employee(Person):
-    def __init__(self, employeeID, company, position, salary):
-        super().__init__('Matthew', 'Rickman', '279718811')
+    employeeList = []
+
+    def __init__(self, fname, lname, ssn, employeeID, company, position, salary):
+        super().__init__(fname, lname,  ssn)
         self.employeeID = employeeID
         self.company = company
         self.position = position
         self.salary = salary
+        self.employeeList.append(self)
 
     def __str__(self):
-        return self.firstName + ' ' + self.lastName + ' ' + self.employeeID + ' ' + self.company + ' ' + self.position + ' ' + str(self.salary)
+        return self.firstName + ' ' + self.lastName + ' ' + self.employeeID + ' ' + self.company + ' ' + self.position + ' ' + str(round(self.salary, 2))
 
     def getEmployeeID(self):
         return self.employeeID
@@ -49,8 +52,8 @@ class Employee(Person):
     def getSalary(self):
         return self.salary
 
-    def setEmployeeID(self, id):
-        self.id = id
+    def setEmployeeID(self, new_id):
+        self.employeeID = new_id
 
     def setCompany(self, company):
         self.company = company
@@ -61,7 +64,22 @@ class Employee(Person):
     def setSalary(self, salary):
         self.salary = salary
 
+    def Raise(self, percentage):
+        currSal = self.getSalary()
+        amtRaise = (percentage * .01) * currSal
+        newSal = currSal + amtRaise
+        self.setSalary(newSal)
 
-person = Person("Matthew", "Rickman", "279719001")
-employee = Employee('215', 'Hilton', 'Greeter', 14.25)
-print(employee)
+    def Cut(self, percentage):
+        currSal = self.getSalary()
+        amtCut = (percentage * .01) * currSal
+        newSal = currSal - amtCut
+        self.setSalary(newSal)
+
+
+employee = Employee('Tommy', 'Jackson', '278118369', '215', 'Hilton', 'Greeter', 14.25)
+employee2 = Employee('Matthew', 'Rickman', '810952817', '256', 'Hilton', 'maid', 14.25)
+employee.Raise(25)
+for i in employee.employeeList:
+    if i.salary <= 16.00:
+        print(i)
