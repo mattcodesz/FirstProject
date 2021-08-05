@@ -27,12 +27,15 @@ class Person():
         self.SSN = SSN
 
 class Employee(Person):
-    def __init__(self, employeeID, company, position, salary):
-        super().__init__('Matthew', 'Rickman', '279718811')
+    employeeList = []
+
+    def __init__(self, fname, lname, ssn, employeeID, company, position, salary):
+        super().__init__(fname, lname,  ssn)
         self.employeeID = employeeID
         self.company = company
         self.position = position
         self.salary = salary
+        self.employeeList.append(self)
 
     def __str__(self):
         return self.firstName + ' ' + self.lastName + ' ' + self.employeeID + ' ' + self.company + ' ' + self.position + ' ' + str(round(self.salary, 2))
@@ -67,8 +70,16 @@ class Employee(Person):
         newSal = currSal + amtRaise
         self.setSalary(newSal)
 
+    def Cut(self, percentage):
+        currSal = self.getSalary()
+        amtCut = (percentage * .01) * currSal
+        newSal = currSal - amtCut
+        self.setSalary(newSal)
 
-person = Person("Matthew", "Rickman", "279719001")
-employee = Employee('215', 'Hilton', 'Greeter', 14.25)
+
+employee = Employee('Tommy', 'Jackson', '278118369', '215', 'Hilton', 'Greeter', 14.25)
+employee2 = Employee('Matthew', 'Rickman', '810952817', '256', 'Hilton', 'maid', 14.25)
 employee.Raise(25)
-print(employee)
+for i in employee.employeeList:
+    if i.salary <= 16.00:
+        print(i)
