@@ -1,1 +1,2 @@
-text
+text 
+This is added text
