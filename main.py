@@ -38,16 +38,18 @@ class Employee(Person):
         return self.firstName + ' ' + self.lastName + ' ' + self.employeeID + ' ' + self.company + ' ' + self.position + ' ' + str(self.salary)
 
     def getEmployeeID(self):
-        pass
+        return self.employeeID
 
     def getCompany(self):
-        pass
+        return self.company
 
     def getPosition(self):
-        pass
+        return self.position
 
     def getSalary(self):
-        pass
+        return self.salary
+
+
 person = Person("Matthew", "Rickman", "279719001")
 person.setName('Tommy')
 name = Person.getName(person)
