@@ -1,3 +1,4 @@
+# file to make employee objects and run various functions
 from main import *
 employee2 = Employee('Matthew', 'Rickman', '810952817', '256', 'Hilton', 'maid', 14.25)
 employee.Raise(25)
