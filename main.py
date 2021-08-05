@@ -35,7 +35,7 @@ class Employee(Person):
         self.salary = salary
 
     def __str__(self):
-        return self.firstName + ' ' + self.lastName + ' ' + self.employeeID + ' ' + self.company + ' ' + self.position + ' ' + str(self.salary)
+        return self.firstName + ' ' + self.lastName + ' ' + self.employeeID + ' ' + self.company + ' ' + self.position + ' ' + str(round(self.salary, 2))
 
     def getEmployeeID(self):
         return self.employeeID
@@ -49,8 +49,8 @@ class Employee(Person):
     def getSalary(self):
         return self.salary
 
-    def setEmployeeID(self, id):
-        self.id = id
+    def setEmployeeID(self, new_id):
+        self.employeeID = new_id
 
     def setCompany(self, company):
         self.company = company
@@ -61,7 +61,14 @@ class Employee(Person):
     def setSalary(self, salary):
         self.salary = salary
 
+    def Raise(self, percentage):
+        currSal = self.getSalary()
+        amtRaise = (percentage * .01) * currSal
+        newSal = currSal + amtRaise
+        self.setSalary(newSal)
+
 
 person = Person("Matthew", "Rickman", "279719001")
 employee = Employee('215', 'Hilton', 'Greeter', 14.25)
+employee.Raise(25)
 print(employee)
