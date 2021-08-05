@@ -49,9 +49,19 @@ class Employee(Person):
     def getSalary(self):
         return self.salary
 
+    def setEmployeeID(self, id):
+        self.id = id
+
+    def setCompany(self, company):
+        self.company = company
+
+    def setPosition(self, position):
+        self.position = position
+
+    def setSalary(self, salary):
+        self.salary = salary
+
 
 person = Person("Matthew", "Rickman", "279719001")
-person.setName('Tommy')
-name = Person.getName(person)
 employee = Employee('215', 'Hilton', 'Greeter', 14.25)
 print(employee)
