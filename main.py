@@ -26,11 +26,12 @@ class Person():
     def setSSN(self, SSN):
         self.SSN = SSN
 
+
 class Employee(Person):
     employeeList = []
 
     def __init__(self, fname, lname, ssn, employeeID, company, position, salary):
-        super().__init__(fname, lname,  ssn)
+        super().__init__(fname, lname, ssn)
         self.employeeID = employeeID
         self.company = company
         self.position = position
@@ -38,7 +39,8 @@ class Employee(Person):
         self.employeeList.append(self)
 
     def __str__(self):
-        return self.firstName + ' ' + self.lastName + ' ' + self.employeeID + ' ' + self.company + ' ' + self.position + ' ' + str(round(self.salary, 2))
+        return self.firstName + ' ' + self.lastName + ' ' + self.employeeID + ' ' + self.company + ' ' + self.position + ' ' + str(
+            round(self.salary, 2))
 
     def getEmployeeID(self):
         return self.employeeID
@@ -78,8 +80,8 @@ class Employee(Person):
 
 
 employee = Employee('Tommy', 'Jackson', '278118369', '215', 'Hilton', 'Greeter', 14.25)
-employee2 = Employee('Matthew', 'Rickman', '810952817', '256', 'Hilton', 'maid', 14.25)
-employee.Raise(25)
-for i in employee.employeeList:
-    if i.salary <= 16.00:
+
+
+def printList():
+    for i in employee.employeeList:
         print(i)
